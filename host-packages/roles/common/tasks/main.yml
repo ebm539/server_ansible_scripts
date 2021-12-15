@@ -1,0 +1,33 @@
+---
+# Install required software, but actually do so.
+# These unhelpful comments will bite me later.
+# hardcodes: amd64 architecture, Debian bullseye
+
+- name: Install docker requirements
+  apt:
+    name: "{{ item }}"
+    state: latest  # noqa package-latest
+    update_cache: true
+  loop:
+    - ca-certificates
+    - curl
+    - gnupg
+    - lsb-release
+
+#
+# - name: add Docker GPG key
+#   apt_key:
+#     url: https://download.docker.com/linux/debian/gpg
+#     state: present
+#
+# - name: add Docker apt repository
+#   apt_repository:
+#     repo: deb amd64 https://download.docker.com/linux/debian bullseye stable
+#     state: present
+#
+# - name: Install Docker
+#   apt:
+#     name: "{{ item }}"
+#     state: latest
+#     update_cache: yes
+#

@@ -1,0 +1,9 @@
+---
+# Installs software directly on the VM, e.g. docker
+
+- name: install required software
+  hosts: vm
+  remote_user: root
+
+  roles:
+    - common
