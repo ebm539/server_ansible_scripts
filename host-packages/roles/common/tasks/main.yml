@@ -5,14 +5,13 @@
 
 - name: Install docker requirements
   apt:
-    name: "{{ item }}"
+    name:
+      - ca-certificates
+      - curl
+      - gnupg
+      - lsb-release
     state: latest  # noqa package-latest
     update_cache: true
-  loop:
-    - ca-certificates
-    - curl
-    - gnupg
-    - lsb-release
 
 #
 # - name: add Docker GPG key
