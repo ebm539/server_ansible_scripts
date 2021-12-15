@@ -1,0 +1,8 @@
+---
+- name: install netcat-openbsd
+  hosts: vm
+  remote_user: root
+
+  tasks:
+  - name: install netcat-openbsd
+    apt: pkg=netcat-openbsd state=latest
