@@ -1,9 +1,16 @@
 ---
 # Installs software directly on the VM, e.g. docker
 
-- name: install required software
+- name: Install Docker
   hosts: vm
   remote_user: root
 
   roles:
-    - common
+    - install-docker
+
+- name: Configure Docker daemon (for IPv6)
+  hosts: vm
+  remote_user: root
+
+  roles:
+    - configure-docker
