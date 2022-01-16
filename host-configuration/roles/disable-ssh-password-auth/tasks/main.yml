@@ -1,0 +1,8 @@
+---
+- name: Disable SSH password authentication (and use only SSH keys)
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    state: present
+    regexp: '^#PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+    validate: 'sshd -t'

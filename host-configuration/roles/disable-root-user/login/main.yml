@@ -1,0 +1,8 @@
+- name: Disable login as root user via SSH
+
+
+- name: Remove root user's password
+
+
+- name: Lock root user's account
+
