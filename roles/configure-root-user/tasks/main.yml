@@ -1,9 +1,4 @@
 ---
-
-# TODO: read about Ansible vault and encrypted variables
-# (I'd like to set a predefined password for the root user using Ansible,
-#  without having the password in plain text)
-
 - name: Set the root user's password
   user:
     name: root
