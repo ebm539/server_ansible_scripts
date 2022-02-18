@@ -1,0 +1,14 @@
+---
+- name: Start firewalld on boot
+  service:
+    name: firewalld
+    enabled: true
+  notify:
+    - Restart firewalld
+
+- name: Reject all packets not allowed
+  firewalld:
+    target: '%%REJECT%%'
+    zone: public
+    state: enabled
+    permanent: true

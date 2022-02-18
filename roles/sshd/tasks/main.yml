@@ -1,0 +1,31 @@
+---
+- name: Disable SSH password authentication (and use only SSH keys)
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    state: present
+    regexp: '^#PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+    # validate: 'sshd -t'
+  notify:
+    - Restart sshd
+
+- name: Disable login as root using SSH
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    state: present
+    regexp: '^#PermitRootLogin prohibit-password'
+    line: 'PermitRootLogin no'
+    # validate: 'sshd -t'
+  notify:
+    - Restart sshd
+
+- name: Enable sshd on boot
+  service:
+    name: sshd
+    enabled: true
+
+- name: Allow SSH through firewalld
+  firewalld:
+    service: ssh
+    permanent: true
+    state: enabled

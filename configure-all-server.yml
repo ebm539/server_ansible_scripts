@@ -1,9 +1,0 @@
----
-# Configures all of the server
-# (host specific software first, then Docker containers afterward)
-
-# Read the assumptions e.g. in host-configuration/ !!
-
-- name: Configure the host server
-  hosts: vm
-  remote_user: automatedscriptrunner

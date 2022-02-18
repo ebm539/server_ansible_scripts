@@ -1,0 +1,13 @@
+---
+- name: Install firewalld
+  apt:
+    name:
+      - firewalld
+    state: latest  # noqa package-latest
+    update_cache: true
+
+# - name: Disable firewalld (until configured for sshd)
+#   service:
+#     name: firewalld
+#     state: stopped
+#     enabled: false

@@ -1,6 +1,7 @@
 ---
-# Install required software, but actually do so.
-# These unhelpful comments will bite me later.
+# Configure Docker daemon for IPv6 on containers
+# (this is not telling Docker to use IPv6 for pulling images)
+
 # hardcodes: amd64 architecture, Debian bullseye
 
 - name: Install GnuPG (for apt_key)
@@ -28,3 +29,21 @@
       - containerd.io
     state: latest  # noqa package-latest
     update_cache: true
+
+- name: Copy docker daemon.json
+  copy:
+    src: docker-daemon.json
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: 0644
+  tags: docker
+  notify:
+    - Restart Docker
+
+- name: Start Docker
+  service:
+    name: docker
+    state: started
+    enabled: true
+  tags: docker
