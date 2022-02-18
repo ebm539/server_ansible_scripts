@@ -7,7 +7,7 @@
     line: 'PasswordAuthentication no'
     # validate: 'sshd -t'
   notify:
-    - Restart sshd
+    - Reload sshd
 
 - name: Disable login as root using SSH
   lineinfile:
@@ -17,15 +17,9 @@
     line: 'PermitRootLogin no'
     # validate: 'sshd -t'
   notify:
-    - Restart sshd
+    - Reload sshd
 
 - name: Enable sshd on boot
   service:
     name: sshd
     enabled: true
-
-- name: Allow SSH through firewalld
-  firewalld:
-    service: ssh
-    permanent: true
-    state: enabled

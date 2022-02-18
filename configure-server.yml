@@ -1,22 +1,12 @@
 ---
-# This playbook runs other playbooks so that the server is configured
-
-- name: Configure plain Debian
+- name: Configure the Debian VM, ready to run Docker containers
   hosts: vm
   remote_user: automatedscriptrunner
   become: true
 
   roles:
-    - install-firewalld
+    - firewalld
     - sshd
-    - configure-firewalld
-    - disable-root-user
+    - configure-root-user
     - docker
-
-      #- name: Configure the Docker containers
-      #  hosts: vm
-      #  remote_user: automatedscriptrunner
-      #  become: true
-      #
-      #  roles:
-      #    - docker-containers
+    - chrony

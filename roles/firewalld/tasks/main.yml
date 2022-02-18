@@ -1,0 +1,21 @@
+---
+- name: Install firewalld
+  apt:
+    name:
+      - firewalld
+    state: latest  # noqa package-latest
+    update_cache: true
+
+- name: Run firewalld on boot
+  service:
+    name: firewalld
+    enabled: true
+
+- name: Add eth0 to firewalld public zone
+  firewalld:
+    interface: eth0
+    zone: public
+    state: enabled
+    permanent: true
+  notify:
+    - Reload firewalld

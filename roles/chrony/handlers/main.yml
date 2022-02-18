@@ -1,0 +1,8 @@
+---
+
+# TODO: determine if a reload is sufficient
+
+- name: Restart chrony
+  service:
+    name: chronyd
+    state: restarted

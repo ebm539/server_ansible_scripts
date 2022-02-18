@@ -1,0 +1,24 @@
+---
+
+- name: Install chrony
+  apt:
+    name:
+      - chrony
+    state: latest  # noqa package-latest
+    update_cache: true
+
+# - name: Configure chrony
+#   copy:
+#     src: chrony.conf
+#     dest: /etc/chrony/chrony.conf
+#     owner: root
+#     group: root
+#     mode: 0644
+#   notify:
+#     - Restart chrony
+
+- name: Start chrony on boot
+  service:
+    name: chronyd
+    state: started
+    enabled: true
