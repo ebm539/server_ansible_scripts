@@ -6,3 +6,15 @@ Additionally, the scripts assume that the `automatedscriptrunner` user can run a
 Other assumptions:
 - The host (i.e. the machine the scripts are applied to) runs Debian bullseye on the amd64 architecture
 - There is only one Ethernet interface, and it is `eth0`
+
+## Roles to implement
+
+- Firewall rules for all other services (firewalld?)
+- chronyd
+- Nginx
+- [Nginx with quiche](https://github.com/cloudflare/quiche/tree/master/nginx)
+- Postfix, Dovecot, Rspamd, Redis, OpenDKIM, OpenDMARC
+- MariaDB (may replace with Postgres)
+- Grafana, Telegraf, InfluxDB
+- [Mosquitto](https://github.com/eclipse/mosquitto)
+- Unbound
