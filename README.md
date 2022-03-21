@@ -13,6 +13,7 @@ Other assumptions:
 - chronyd
 - Nginx
 - [Nginx with quiche](https://github.com/cloudflare/quiche/tree/master/nginx)
+- [Nginx with ngx_pagespeed](https://github.com/apache/incubator-pagespeed-ngx)
 - Postfix, Dovecot, Rspamd, Redis, OpenDKIM, OpenDMARC
 - MariaDB (may replace with Postgres)
 - Grafana, Telegraf, InfluxDB
