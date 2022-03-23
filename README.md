@@ -19,3 +19,7 @@ Other assumptions:
 - Grafana, Telegraf, InfluxDB
 - [Mosquitto](https://github.com/eclipse/mosquitto)
 - Unbound
+
+I'm planning to use Docker when implementing the roles (with the exceptions firewalld and chronyd),
+but I'm also planning not to be solely reliant on the Docker Hub (potential single point of failure and security concerns).
+Perhaps I should look at something akin to FreeBSD jails.
