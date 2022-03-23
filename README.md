@@ -23,3 +23,8 @@ Other assumptions:
 I'm planning to use Docker when implementing the roles (with the exceptions firewalld and chronyd),
 but I'm also planning not to be solely reliant on the Docker Hub (potential single point of failure and security concerns).
 Perhaps I should look at something akin to FreeBSD jails.
+
+
+## Potential roles to implement on my laptop
+
+- GitLab, Jenkins (i.e. CI/CD)
