@@ -24,6 +24,8 @@ I'm planning to use Docker when implementing the roles (with the exceptions fire
 but I'm also planning not to be solely reliant on the Docker Hub (potential single point of failure and security concerns).
 Perhaps I should look at something akin to FreeBSD jails.
 
+Also to include somewhere: creating and renewing X.509 certificates signed by Let's Encrypt (e.g. for nginx roles) as an Ansible role (or Docker?). DNS challenge, wildcard subdomain support, and ECC key support would be preferred. 
+
 
 ## Potential roles to implement on my laptop
 
