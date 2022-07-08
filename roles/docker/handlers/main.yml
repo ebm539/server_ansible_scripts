@@ -1,5 +1,9 @@
 ---
 
+- name: Reload kernel parameters
+  shell:
+    cmd: sysctl --system
+
 - name: Restart Docker
   service:
     name: docker

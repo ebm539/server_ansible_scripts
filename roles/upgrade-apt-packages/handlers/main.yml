@@ -1,0 +1,12 @@
+---
+
+# Note for me:
+# sometimes libvirt will enter an infinite loop on reboot,
+# so I will need to remember to force stop the Debian VM and start it again.
+# TODO: find a bug report on this, is it to do with edk2-ovmf (i.e. UEFI) ?
+# (libvirt is running on the hypervisor i.e. my laptop,
+#  the "host" referenced in the task files is the Debian VM running on libvirt,
+#  and the Docker containers are running in Docker on the Debian VM)
+
+- name: Reboot the system
+  reboot:

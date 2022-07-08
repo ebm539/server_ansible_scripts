@@ -4,6 +4,26 @@
 
 # hardcodes: amd64 architecture, Debian bullseye
 
+- name: Accept IPv6 router advertisements when IPv6 forwarding is enabled
+  copy:
+    src: 20-accept-ra-with-ipv6-forwarding.conf
+    dest: /etc/sysctl.d/20-accept-ra-with-ipv6-forwarding.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Reload kernel parameters
+
+- name: Enable IP forwarding
+  copy:
+    src: 20-enable-ip-forwarding.conf
+    dest: /etc/sysctl.d/20-enable-ip-forwarding.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Reload kernel parameters
+
 - name: Install GnuPG (for apt_key)
   apt:
     name:
@@ -53,10 +73,10 @@
     path: /usr/local/lib/docker/cli-plugins
     state: directory
 
-- name: Install Docker Compose v2.2.3
+- name: Install Docker Compose v2.6.1
   get_url:
-    url: https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64
-    checksum: sha256:https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64.sha256
+    url: https://github.com/docker/compose/releases/download/v2.6.1/docker-compose-linux-x86_64
+    checksum: sha256:https://github.com/docker/compose/releases/download/v2.6.1/docker-compose-linux-x86_64.sha256
     dest: /usr/local/lib/docker/cli-plugins/docker-compose
     owner: root
     group: root

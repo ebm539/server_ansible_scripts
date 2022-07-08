@@ -1,0 +1,7 @@
+---
+
+- name: Remove unnecessary packages
+  apt:
+    autoremove: true
+  notify:
+    - Reboot the system

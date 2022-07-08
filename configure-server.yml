@@ -1,10 +1,27 @@
 ---
+- name: Enable passwordless sudo for automatedscriptrunner
+  hosts: vm
+  remote_user: automatedscriptrunner
+  become: true
+  # the account password created at install
+  vars:
+    - ansible_become_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          66393635636638653363633230623563626261356434643763356465373638383062343164353461
+          3538613133396638303839353735313866303462626132660a336161656432376636653335383938
+          38353630643133393537386639616162313738316539656364633365613864656233313063333565
+          3461316530303539300a323665666434363034646238613031326562383463666564323333396366
+          3830
+  roles:
+    - configure-automatedscriptrunner-user
+
 - name: Configure the Debian VM, ready to run Docker containers
   hosts: vm
   remote_user: automatedscriptrunner
   become: true
 
   roles:
+    - upgrade-apt-packages
     - firewalld
     - sshd
     - configure-root-user

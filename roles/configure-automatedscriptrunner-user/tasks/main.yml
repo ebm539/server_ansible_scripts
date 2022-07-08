@@ -1,0 +1,14 @@
+---
+- name: Allow automatedscriptrunner to run sudo commands passwordless
+  copy:
+    src: automatedscriptrunner-passwordless
+    dest: /etc/sudoers.d/automatedscriptrunner-passwordless
+    owner: root
+    group: root
+    mode: 0440
+
+- name: Disable password login on automatedscriptrunner
+  user:
+    name: automatedscriptrunner
+    password: '*'
+    password_lock: true
