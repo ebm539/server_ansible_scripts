@@ -27,6 +27,8 @@ Perhaps I should look at something akin to FreeBSD jails.
 Also to include somewhere: creating and renewing X.509 certificates signed by Let's Encrypt (e.g. for nginx roles) as an Ansible role (or Docker?). DNS challenge, wildcard subdomain support, and ECC key support would be preferred. 
 Integrate https://hub.docker.com/r/nginxproxy/acme-companion ?
 
+https://docs.linuxserver.io/general/swag looks promising for Docker container use
+
 
 ## Potential roles to implement on my laptop
 
